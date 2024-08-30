@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUEENGRACE ONLINE STORE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 0.5rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        nav ul li {
+            margin: 0 0.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 1rem;
+            margin: 1rem;
+            border: 1px solid #ccc;
+            font-size: 11px;
+            display: none; /* Hide all sections by default */
+        }
+
+        .product-catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            margin: 0.5rem;
+            padding: 0.5rem;
+            width: calc(50% - 1rem);
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+            width: 100%;
+            font-size: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .products {
+            width: 250px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+
+        .products h2 {
+            text-align: center;
+        }
+
+        .product-item {
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-item:last-child {
+            border-bottom: none;
+        }
+
+        .product-item img {
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+        }
+
+        #contact {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 2rem auto;
+            width: 80%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #contact h2 {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 1rem;
+        }
+
+        #contactForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #contactForm label {
+            font-size: 12px;
+            margin-bottom: 0.5rem;
+            align-self: flex-start;
+        }
+
+        #contactForm input,
+        #contactForm textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        #contactForm button {
+            padding: 0.5rem 1rem;
+            font-size: 12px;
+        }
+
+        #cart {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ccc;
+        }
+
+        .full-summary {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ccc;
+        }
+
+        /* Show the first section (home) by default */
+        #home {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to QUEENGRACE ONLINE STORE</h1>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('home')">Home</a></li>
+                <li><a onclick="showSection('products')">Products</a></li>
+                <li><a onclick="showSection('about')">About Us</a></li>
+                <li><a onclick="showSection('contact')">Contact</a></li>
+                <li><a onclick="showSection('cart')">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Home</h2>
+        <p>Find products and services from the comfort of your home.</p>
+    </section>
+
+    <section id="products">
+        <h2>Products</h2>
+        <div class="product-catalog">
+            <div class="product">
+                <h3>Tomato</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Tomato_je.jpg" alt="Tomato">
+                <p>Fresh and juicy tomatoes</p>
+                <p>Price: ₦200</p>
+                <button onclick="addToCart('Tomato', 200)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h3>Cabbage</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Cabbage.jpg" alt="Cabbage">
+                <p>Fresh and healthy cabbage</p>
+                <p>Price: ₦150</p>
+                <button onclick="addToCart('Cabbage', 150)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h3>Potato</h3>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Potato_je.jpg" alt="Potato">
+                <p>High-quality potatoes</p>
+                <p>Price: ₦100</p>
+                <button onclick="addToCart('Potato', 100)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We aim to provide the best online shopping experience for our customers.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="cart">
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: ₦<span id="total-price">0</span></p>
+        <button onclick="placeOrder()">Place Order</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 QUEENGRACE ONLINE STORE</p>
+    </footer>
+
+    <div class="full-summary" id="full-summary">
+        <h2>Full Cart Summary</h2>
+        <ul id="full-cart-summary"></ul>
+        <p>Total: ₦<span id="full-total-price">0</span></p>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(product, price) {
+            // Add product to cart array
+            cart.push({ product, price });
+            // Update the cart display
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const totalPriceElement = document.getElementById('total-price');
+            const cartCount = document.getElementById('cart-count');
+            const fullCartSummary = document.getElementById('full-cart-summary');
+            const fullTotalPriceElement = document.getElementById('full-total-price');
+
+            cartItems.innerHTML = '';
+            fullCartSummary.innerHTML = '';
+
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.product} - ₦${item.price}`;
+                cartItems.appendChild(list
